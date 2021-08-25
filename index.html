@@ -8,23 +8,42 @@
         body {
             background-color: #0b5b51;
             font-family: 'Times New Roman', Times, serif;
-            font-size: 55px;
             color: #FFF;
             padding: 5rem;
         }
 
+        h1 {
+            font-size: 55px;
+            font-weight: normal;
+        }
+
         a {
             color: #11D9F7;
-            font-size: 25px;
+            font-size: 32px;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 500px) {
+            body {
+                padding: 12vw;
+            }
+
+            h1 {
+                font-size: 10vw;
+            }
+
+            a {
+                font-size: 7vw;
+            }
         }
     </style>
 </head>
 <body>
-    <p><i>Redirecting...</i></p>
+    <h1><i>Redirecting...</i></h1>
     <p><a href="https://awesome-e.github.io/hs-tools/">If not redirected, click here</a></p>
-    <script>
+    <!-- script>
         window.location.replace("https://awesome-e.github.io/hs-tools/");
         window.location = "https://awesome-e.github.io/hs-tools/";
-    </script>
+    </!-->
 </body>
 </html>
