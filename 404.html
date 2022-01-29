@@ -7,8 +7,8 @@
   <meta name="robots" content="noindex">
   <title>Page not Found</title>
   <script>
-    const match = new URL(location.href).pathname.match(/^\/(?:hopscotch\/?)?(hs-tools\/?)?/)
-    if (match) window.location.replace("https://ae-hopscotch.github.io/" + (match[1] || ''));
+    const match = new URL(location.href).pathname.match(/^\/(?:hopscotch\/?)?(hs-tools\/?)?(.*$)/)
+    if (match) window.location.replace("https://ae-hopscotch.github.io/" + (match[1] || '') + (match[2] || ''));
   </script>
   <style>@media(prefers-color-scheme: dark){html{background-color:black;}}</style>
 </head>
