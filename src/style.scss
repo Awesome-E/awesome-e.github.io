@@ -38,6 +38,13 @@ body {
   text-align: center;
 }
 
+.mt-64 { margin-top: 64px; }
+.hug-wave {
+  position: relative;
+  z-index: 1;
+  margin-bottom: calc(-2vw - 60px);
+}
+
 section {
   padding: 32px;
   overflow-x: clip;
@@ -306,11 +313,11 @@ $names: 'typescript', 'js', 'html', 'css', 'sass', 'git', 'postgresql', 'mongodb
 
 footer {
   position: relative;
-  padding: 5vw 10% 0;
+  padding: 8vw 10% 0;
   height: 33vw;
   display: flex;
   align-items: center;
-  max-height: 480px;
+  max-height: 512px;
   overflow: hidden;
   > img {
     position: absolute;
@@ -327,7 +334,18 @@ footer {
     h3 { margin-block: 0 18px; font-size: 24px; }
     ul { list-style: none; padding-left: 0; }
     li { margin-block: 12px; }
-    a { color: inherit; }
-    > a { text-decoration: none; }
+    .column li > a { text-decoration: none; }
+    a {
+      color: inherit;
+      transition: opacity 0.2s;
+      &:hover { opacity: 0.8; }
+      &:active { opacity: 0.5; }
+      &:not([href]) { opacity: 0.3; } // Temp
+    }
   }
+}
+
+p.caption {
+  margin-block: 0;
+  font-size: 16px;
 }

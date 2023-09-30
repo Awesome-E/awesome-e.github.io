@@ -61,7 +61,7 @@ a.button {
   gap: 32px;
   margin-top: 18px;
   .column {
-    width: 50%;
+    &.fw { width: 50%; }
     h2 { margin-block: 0 8px; }
     ol {
       display: flex;
@@ -105,3 +105,13 @@ a.button {
   }
 }
 
+.screenshot-grid-small {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 300px));
+  justify-content: center;
+  gap: 36px;
+  .img-container, img {
+    width: 100%;
+  }
+}
