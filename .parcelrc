@@ -1,0 +1,9 @@
+{
+	"extends": "@parcel/config-default",
+  "resolvers": ["parcel-resolver-ignore", "..."],
+	"namers": ["./parcel-namer-relative-to-src.cjs"],
+  "transformers": {
+    "*.{ttf,woff,ico,webmanifest}": ["@parcel/transformer-raw"],
+    "*.hbs": ["@partiellkorrekt/parcel-transformer-handlebars"]
+  }
+}
