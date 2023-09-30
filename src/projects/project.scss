@@ -18,11 +18,17 @@ section.page-header {
   padding-inline: 0;
   .icons-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     .icons-row {
       display: inline-flex;
       gap: 16px;
     }
+  }
+  @media (max-width: 480px) {
+    .icons-container { gap: 12px; }
+    .icons-row { gap: 12px; }
+    .icons-row img { width: 32px; }
   }
 }
 
@@ -59,9 +65,11 @@ a.button {
   display: flex;
   width: 100%;
   gap: 32px;
-  margin-top: 18px;
+  margin-block: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
   .column {
-    &.fw { width: 50%; }
+    max-width: 100%;
     h2 { margin-block: 0 8px; }
     ol {
       display: flex;
@@ -75,6 +83,7 @@ a.button {
     }
     .select-img-container { position: relative; }
     img {
+      max-width: 100%;
       transition: opacity 0.2s cubic-bezier(0.92, 0.25, 0, 0.79);
       &:nth-child(n + 2) { position: absolute; inset: 0; }
     }
@@ -108,10 +117,12 @@ a.button {
 .screenshot-grid-small {
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 300px));
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   justify-content: center;
+  justify-items: center;
   gap: 36px;
   .img-container, img {
     width: 100%;
+    max-width: 420px;
   }
 }
