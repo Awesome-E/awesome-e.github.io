@@ -17,11 +17,11 @@
     </div>
     <br>
     <div class="project-grid">
-      <div class="project-card">
+      <a class="project-card" href="hackeval.hbs">
         <img src="/src/images/projects/hackeval.png" alt="HackEval Screenshot" width="480">
         <h3>HackEval</h3>
         <p class="description">A platform that streamlines the hackathon judging process for judges, organizers, and hackers.</p>
-      </div>
+      </a>
       <div class="project-card">
         <img src="/src/images/projects/webeditor.png" alt="Hopscotch Web Editor Screenshot" width="480">
         <h3>Hopscotch Web Editor</h3>
@@ -90,5 +90,16 @@
     </div>
   </section>
   {{> footer }}
+  <script type="module">
+    import VanillaTilt from 'vanilla-tilt';
+    const elements = document.querySelectorAll('.project-card');
+    VanillaTilt.init(elements, {
+      'reverse': true,
+      'perspective': 4000,
+      'glare': true,
+      'max-glare': 0.2,
+      'gyroscope': false
+    })
+  </script>
 </body>
 </html>

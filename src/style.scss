@@ -34,6 +34,10 @@ body {
   }
 }
 
+.center {
+  text-align: center;
+}
+
 section {
   padding: 32px;
   overflow-x: clip;
@@ -253,22 +257,50 @@ $names: 'typescript', 'js', 'html', 'css', 'sass', 'git', 'postgresql', 'mongodb
 .project-grid {
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: repeat(auto-fill, 480px);
+  grid-template-columns: repeat(auto-fill, 440px);
   justify-content: center;
   gap: 48px;
   .project-card {
-    width: 480px;
+    width: 440px;
     border-radius: 8px;
     background: #2B2D32;
-    overflow: hidden;
-    h3, p { margin-inline: 20px; }
-    h3 {
-      font-size: 28px;
-      font-weight: bold;
-      margin-block: 16px 8px;
+    color: inherit;
+    text-decoration: inherit;
+    transition: opacity 0.2s, box-shadow 0.2s;
+    transform-style: preserve-3d;
+    h3, p {
+      margin-inline: 18px;
+      transform: translateZ(12px);
     }
-    p { margin-block: 0 20px; }
-    > img { display: flex; width: inherit; height: 318px; }
+    h3 {
+      font-size: 25px;
+      font-weight: bold;
+      margin-block: 14px 8px;
+    }
+    p { margin-block: 0 18px; font-size: 17px; }
+    > img {
+      display: flex;
+      width: inherit;
+      height: 292px;
+      border-radius: 8px 8px 0 0;
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+    &:hover {
+      box-shadow: 0 0 32px 0px #fff2;
+      * { position: relative; z-index: 1; }
+      &::before {
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 115%;
+        height: 115%;
+      }
+      > img { box-shadow: 0px 4px 12px 2px #1112; }
+    }
+    &:active { opacity: 0.8; }
   }
 }
 
