@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome_E's Projects</title>
+  <meta name="color-scheme" content="dark">
+  <link rel="stylesheet" href="project.scss">
+  {{> site_icons }}
+  <style>.page-header .center img { border-radius: 24px; }</style>
+</head>
+<body>
+  {{> topnav }}
+  <section class="gradient page-header">
+    <div class="heading-container">
+      <h1>Treasure Hacks Discord Bot</h1>
+      <p>A general-purpose discord bot to help provide features and ease moderation for Treasure Hacks.</p>
+    </div>
+    <br>
+    <div class="center">
+      <img src="/src/images/projects/treasurehacks-discord-bot.png" alt="User profile of the Treasure Hacks Discord Bot" width="800">
+    </div>
+  </section>
+  <section>
+    <div class="content-wrapper">
+      <h1>Identifying its Purpose</h1>
+      <p>As we hosted our online hackathons on Discord, we quickly saw that some functions we wanted were (and still aren&rsquo;t) natively implemented
+        in Discord. One of these features was being able to send a different invite link that would automatically assign appropriate channel permissions
+        to judges, mentors, speakers, and participants.</p>
+    </div>
+    <div class="content-wrapper">
+      <h1>What it Does</h1>
+      <p>The Treasure Hacks Discord Bot is a general purpose bot made for our server. It takes handles certain cases in moderation and provides us with
+        a list of commands so that we can focus more on running our events. Below is a non-exhaustive list of the functionality it has:</p>
+
+      <p><b class="underline">Attendance:</b> When run, the <code>/attendance record</code> command gets everyone in the current voice channel (where
+        the command is run) and saves it in a database. We can then view this data later with <code>/attendance list</code>, which returns the date the
+        command was run, then name of the workshop, and the participant list.</p>
+
+      <p><b class="underline">Category Management:</b> The <code>/category clear</code> command helps us more easily manage categories. Because certain
+        mini-events, workshops, etc. take place in their own category of channels, sometimes we want to delete all sub-channels at once. Discord allows
+        you to delete categories, but then all nested channels become uncategorized and appear at the top of the server list, so we made this command to
+        easily delete the nested channels first. We also created <code>/category sync</code> to sync permissions for every channel instead of doing them
+        one by one.</p>
+
+      <p><b class="underline">Custom Ticket System:</b> While other bots do offer ticketing system functionality, we wanted ours to work a little
+        differently. With our system, the user will use the <code>/request</code> command to specify the reason for the ticket and others to include in
+        it. We would then approve or reject the ticket.</p>
+
+      <p><b class="underline">Invite Management:</b> This system allowed us to track which invite someone joined with, then automatically assign them to
+        a specific role in our server. This made it so we could easily just give judges, workshop speakers, and mentors a different link from participants,
+        and it would reflect that on their profile as soon as they joined.</p>
+
+      <p><b class="underline">Random Fact Generation:</b> Because I wanted to make this bot have functionality for users in a fun way, I decided to add
+        a random fact every time someone “says hello” to the bot (using the <code>/hello</code> command). This uses a random facts API to generate
+        the data and returns it to the user.</p>
+
+      <p><b class="underline">Scam Checker:</b> Because we list our server publicly around the hackathon season, bot users and spammers will occasionally
+        find it and post scams that while obvious, can be annoying to remove. So, we implemented a scam detection system using pre-trained AI models and
+        began to automatically delete scam messages.</p>
+
+      <p><b class="underline">Team Pairing:</b> Since some of our mini-events are done in teams, we wanted a fast way to randomly split up people in the
+        event into different groups. The <code>/category teams</code> command let us quickly specify at most how many people should be in one team, and the
+        bot would create one channel for every team and automatically update the permissions for them to include everyone in the corresponding team.</p>
+    </div>
+    <div class="content-wrapper">
+      <h1 class="icons-container">
+        How it was Built
+        <div class="icons-row">
+          <img src="/src/images/logos/node.svg" alt="Node.js Logo" width="44">
+          <img src="/src/images/logos/js.svg" alt="JavaScript Logo" width="44">
+          <img src="/src/images/logos/jest.svg" alt="Jest Logo" width="44">
+        </div>
+      </h1>
+      <p>The Discord Bot uses the Node.js runtime and takes advantage of the discord.js library. It is written in JavaScript, and all user commands
+        have unit tests written for them using Jest.</p>
+      <div class="center">
+        <a class="button orange-cta" href="javascript:alert('Source code has not been published yet')">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+  {{> footer }}
+  <script>
+    document.querySelectorAll('.column ol label').forEach(l => l.addEventListener('mouseenter', () => {
+      l.click()
+    }))
+  </script>
+</body>
+</html>

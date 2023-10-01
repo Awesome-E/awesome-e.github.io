@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome_E's Projects</title>
+  <meta name="color-scheme" content="dark">
+  <link rel="stylesheet" href="project.scss">
+  {{> site_icons }}
+</head>
+<body>
+  {{> topnav }}
+  <section class="gradient page-header">
+    <div class="heading-container">
+      <h1>Personal Hopscotch Website</h1>
+      <p>A website to showcase my Hopscotch projects and document actions for a modified project player.</p>
+    </div>
+    <br>
+    <div class="center">
+      <img src="/src/images/projects/hopscotch-website.png" alt="Screenshot of the homepage of my personal Hopscotch website" width="800">
+    </div>
+  </section>
+  <section>
+    <div class="content-wrapper">
+      <h1>The Inspiration</h1>
+      <p>A little after I started developing a collection of tools for Hopscotch, I wanted a place to showcase certain Hopscotch projects I made,
+        provide documentation on actions in my modified project player, and have a central location for any high score challenges or similar
+        activities that I ran.</p>
+    <div class="content-wrapper">
+      <h1>What Does it Feature?</h1>
+      <p>First and foremost, it is a place for me to highlight different projects I made. I have pages for games, test projects, and useful tools. Some
+        of the projects include a <a href="https://ae-hopscotch.github.io/hs-tools/play-project/?id=10iu14ay37&play=1" target="_blank">full escape game</a>,
+        a device identifier that works by detecting the difference in how text renders across different operating systems, and a full remake of
+        <a href="https://ae-hopscotch.github.io/hs-tools/play-project/?id=10rr9vddqh&play=1" target="_blank">Minesweeper</a> in Hopscotch.</p>
+      <p>I also feature some of my speedrun pages, which let you play a series of projects back-to-back for the fastest time possible. These pages make use
+        of custom project player actions to trigger a checkpoint or end of the game, and my
+        <a href="https://ae-hopscotch.github.io/hs-tools/play-project/peak-platformers" target="_blank">platformer speedrun</a>
+        even accounts for whether the player uses a level skip glitch similar to those found in games like Super Mario Bros.</i></p>
+      <div class="flex multicolumn">
+        <div class="column">
+          <img src="/src/images/projects/hopscotch-website-s1.png" alt="The Hopscotch Games page on my Hopscotch site" width="450">
+          <p class="caption">A page showcasing games I made in Hopscotch</p>
+        </div>
+        <div class="column">
+          <img src="/src/images/projects/hopscotch-website-s2.png" alt="Documentation written using Markdown and Slate Docs" width="450">
+          <p class="caption">Documentation on modded project player actions</p>
+        </div>
+      </div>
+      <p>Lastly, I use this site to host documentation for my modified project player. The modified project player allows creators to add a block in
+        their code to perform actions that are not a part of the native player. Because there are a variety of actions, I wanted a place to document its
+        functionality and make it easier to understand. The documentation uses a custom implementation of Slate Docs to transform markdown that I write
+        into a fluid side-by-side view of instructions and example Hopscotch code.</p>
+    </div>
+    </div>
+    <div class="content-wrapper">
+      <h1 class="icons-container">
+        How it was Built
+        <div class="icons-row">
+          <img src="/src/images/logos/html.svg" alt="HTML Logo" width="44">
+          <img src="/src/images/logos/css.svg" alt="CSS Logo" width="44">
+          <img src="/src/images/logos/js.svg" alt="JavaScript Logo" width="44">
+          <img src="/src/images/logos/node.svg" alt="Node.js Logo" width="44">
+        </div>
+      </h1>
+      <p>In the frontend, this site functions with HTML, CSS, and minimal JavaScript. I compile Handlebars into HTML for the layouts, write CSS for styles
+        and the parallax effect on the header, and use JavaScript to smoothen page loads and navigation in the documentation page. This site also uses a
+        build process written in Node.js so that documentation written in Markdown is automatically transformed into a full HTML page.</p>
+      <div class="center flex">
+        <a href="https://ae-hopscotch.github.io" class="button orange-cta" target="_blank">View Website</a>
+        <a href="https://github.com/AE-Hopscotch/ae-hopscotch.github.io" class="button orange-cta" target="_blank">Source Code</a>
+      </div>
+    </div>
+  </section>
+  {{> footer }}
+  <script>
+    document.querySelectorAll('.column ol label').forEach(l => l.addEventListener('mouseenter', () => {
+      l.click()
+    }))
+  </script>
+</body>
+</html>
