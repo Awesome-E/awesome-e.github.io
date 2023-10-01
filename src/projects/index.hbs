@@ -90,16 +90,6 @@
     </div>
   </section>
   {{> footer }}
-  <script type="module">
-    import VanillaTilt from 'vanilla-tilt';
-    const elements = document.querySelectorAll('.project-card');
-    VanillaTilt.init(elements, {
-      'reverse': true,
-      'perspective': 4000,
-      'glare': true,
-      'max-glare': 0.2,
-      'gyroscope': false
-    })
-  </script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

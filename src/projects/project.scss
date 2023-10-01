@@ -54,6 +54,7 @@ a.button {
   }
   &.orange-cta {
     background-color: #CA8762;
+    -webkit-tap-highlight-color: #00000000;
   }
 }
 
@@ -93,14 +94,17 @@ a.button {
 .reviews-grid {
   display: flex;
   flex-direction: column;
-  max-height: 275px;
+  @media (min-width: 1060px) { max-height: 275px; }
   flex-wrap: wrap;
   gap: 16px;
   align-content: center;
-  margin-bottom: -120px;
-  margin-bottom: calc(-4vw - 60px);
+  // margin-bottom: -120px;
+  // margin-bottom: calc(-4vw - 60px);
   z-index: 1;
   position: relative;
+  @media (max-width: 1059.9px) {
+    img { width: 440px; max-width: 100%; }
+  }
 }
 
 @each $id in '1' '2' '3' {

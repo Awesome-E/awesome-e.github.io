@@ -16,9 +16,14 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+$nav-transition: 1s;
 .topnav {
   position: fixed;
-  &.unfixed { position: absolute; }
+  // &.unfixed { position: absolute; }
+  background: linear-gradient(#111a2a, #0e1625dd);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  // position: fixed;
   width: 100%;
   left: 0;
   top: 0;
@@ -29,11 +34,125 @@ body {
   gap: 32px;
   font-size: 24px;
   z-index: 10;
-  > :first-child { margin-right: auto; }
-  a {
-    color: inherit;
-    text-decoration: none;
+  > :first-child {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    img { margin-right: 12px; }
   }
+  @media (max-width: $mobile-cutoff) {
+    padding: 12px 18px;
+  }
+}
+label#sidenav-toggle-btn {
+  position: fixed;
+  top: 18.5px;
+  right: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 6px;
+  width: 35px;
+  height: 35px;
+  .line, .center {
+    width: 100%;
+    border: 1.5px solid white;
+    background-color: white;
+    transition: transform $nav-transition;
+    position: relative;
+    z-index: 1;
+    border-radius: 50px;
+  }
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 12px);
+    height: 0;
+    transition: width $nav-transition, height $nav-transition, opacity $nav-transition;
+    z-index: 0;
+    pointer-events: none;
+  }
+  z-index: 1000;
+  transform: translateZ(1px);
+}
+.overlay {
+  display: block;
+	pointer-events: none;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+  opacity: 0.5;
+	z-index: 100;
+	transition: background-color 0.5s;
+  transform: translateZ(0); // Because iOS bugs
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-tap-highlight-color: #0000;
+  &::-webkit-scrollbar { display: none; }
+  &::-moz-scrollbar { display: none; }
+  label { inset: 0; position: absolute; }
+}
+.sidenav {
+  position: fixed;
+  right: -320px;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  background-color: $bg-main;
+  margin: 0;
+  padding: 72px 44px 48px;
+  transition: right 0.75s;
+  z-index: 100;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  overscroll-behavior: contain;
+  overflow: auto;
+  ul, li { list-style-type: none; }
+  ul {
+    margin: 0;
+    padding-left: 0;
+    padding-top: 6px;
+    li {
+      text-transform: none;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+  }
+  li {
+    padding: 6px 0;
+  }
+}
+#sidenav-toggle:checked {
+  ~ label#sidenav-toggle-btn {
+    .line:first-child { transform: translate(0, 8px) rotate(-45deg) scaleX(1.25); }
+    .line:last-child { transform: translate(0, -8px) rotate(45deg) scaleX(1.25); }
+    .center {
+      width: 44px;
+      height: 44px;
+      opacity: 0.2;
+    }
+  }
+  ~ .sidenav {
+    right: 0;
+  }
+  ~ .overlay {
+    background-color: #444;
+    pointer-events: all;
+  }
+}
+.topnav a, .sidenav a, footer a {
+  color: inherit;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  &:hover { opacity: 0.8; }
+  &:active { opacity: 0.5; }
+  &:not([href]) { opacity: 0.3; } // Temp
 }
 
 .center {
@@ -48,10 +167,13 @@ body {
 }
 
 section {
+  position: relative;
   padding: 32px;
   overflow-x: clip;
   &.gradient {
     background-image: linear-gradient(#111A2B, $bg-main);
+    background-size: 100% 480px;
+    background-repeat: no-repeat;
     min-height: 480px;
   }
   &.fullsize {
@@ -76,7 +198,12 @@ h2 { font-size: 24px; }
 @media (max-width: $mobile-cutoff) {
   h1 { font-size: 28px; }
   h2 { font-size: 20px; }
+  body [data-screen="desktop-only"] { display: none !important; }
 }
+@media (min-width: #{$mobile-cutoff + 0.1px}) {
+  body [data-screen="mobile-only"] { display: none !important; }
+}
+.content-only { display: contents; }
 
 .timeline {
   margin: auto;
@@ -198,7 +325,7 @@ h2 { font-size: 24px; }
     &.tl-start { padding-bottom: 0; }
     &.tl-start .img-container img { width: 96px; height: auto; }
     &.tl-start .line::after { display: none; }
-    &.tl-end { padding-top: #{$section-padding / 2}; }
+    &.tl-end { padding-top: calc($section-padding / 2); }
     &.tl-end .line { display: none; }
     .language-grid {
       max-width: 425px;
@@ -391,6 +518,13 @@ $names: 'typescript', 'js', 'html', 'css', 'sass', 'git', 'postgresql', 'mongodb
   }
 }
 
+.footer-lead-in {
+  position: absolute;
+  bottom: min(calc(-30vw + 160px), -40px);
+  left: 0;
+  width: 100%;
+}
+
 footer {
   position: relative;
   padding: 8vw 10% 48px;
@@ -421,14 +555,7 @@ footer {
     h3 { margin-block: 0 18px; font-size: 24px; }
     ul { list-style: none; padding-left: 0; }
     li { margin-block: 12px; }
-    .column li > a { text-decoration: none; }
-    a {
-      color: inherit;
-      transition: opacity 0.2s;
-      &:hover { opacity: 0.8; }
-      &:active { opacity: 0.5; }
-      &:not([href]) { opacity: 0.3; } // Temp
-    }
+    .column li * > a { text-decoration: underline; }
   }
   @media (max-width: 1140px) {
     padding-inline: 5%;
