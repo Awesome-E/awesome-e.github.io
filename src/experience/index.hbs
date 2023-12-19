@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome_E's Projects</title>
+  <meta name="color-scheme" content="dark">
+  <link rel="stylesheet" href="/src/style.scss">
+  {{> site_icons }}
+</head>
+<body>
+  {{> topnav }}
+  <section class="gradient page-header">
+    <div class="heading-container">
+      <h1>Experiences</h1>
+      <h2>Personal and Proefessional Experience</h2>
+    </div>
+    <br>
+    <div class="project-grid">
+      <a class="project-card" href="treasure-hacks.hbs">
+        <img src="/src/images/experience/treasure-hacks.png" alt="Treasure Hacks Logo and Header" width="480">
+        <h3>Co-Founder &amp; CTO</h3>
+        <p class="subtitle">Treasure Hacks, Aug 2021 - Present</p>
+        <p class="description">Hosting hackathons and cultivating soft skills to empower young individuals to pursue their passion</p>
+      </a>
+      <a class="project-card" href="hopscotch.hbs">
+        <img src="/src/images/experience/hopscotch.png" alt="Hopscotch Collage Artwork" width="480">
+        <h3>Product Developer</h3>
+        <p class="subtitle">Hopscotch Technolgies, Jun 2021 - Sep 2022</p>
+        <p class="description">Directing and developing Hopscotch&rsquo;s entire web platform to open their product to a new market</p>
+      </a>
+      <a class="project-card" href="gamechanger.hbs">
+        <img src="/src/images/experience/gamechanger.png" alt="GameChanger class photo with logo" width="480">
+        <h3>Co-Founder &amp; Content Manager</h3>
+        <p class="subtitle">The GameChanger Project, Nov 2019 - Dec 2021</p>
+        <p class="description">Teaching underserved children problem solving and creative thinking skills through video game design.</p>
+      </a>
+      {{!-- <a class="project-card" href="webhosting-workshop.hbs">
+        <img src="/src/images/projects/flask-todos.png" alt="Flask Todo App Screenshot" width="480">
+        <h3>Flask + Web Hosting Workshop</h3>
+        <p class="description">A workshop where participants build and host a supercharged todo app with due date notifications.</p>
+      </a> --}}
+    </div>
+  </section>
+  {{> footer }}
+  <script type="module" src="/src/tilt.js"></script>
+</body>
+</html>
