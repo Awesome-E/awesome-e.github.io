@@ -95,8 +95,11 @@ a.button {
       margin-block: 0 8px;
     }
     ol li {
-      label { transition: opacity 0.2s; }
       padding-inline: 0 24px;
+    }
+    ol li label {
+      transition: opacity 0.2s;
+      cursor: pointer;
     }
     .select-img-container { position: relative; }
     img {
@@ -127,6 +130,8 @@ a.button {
   :is(#ezorg-s#{$id}, #ezjdg-s#{$id}):not(:checked) {
     ~ ol label[for$="s#{$id}"] {
       opacity: 0.5;
+      &:hover { opacity: 0.8; }
+      &:active { opacity: 0.7; }
     }
     ~ .select-img-container [data-for="#{$id}"] {
       opacity: 0;
