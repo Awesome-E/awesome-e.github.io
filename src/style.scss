@@ -347,7 +347,7 @@ h2 { font-size: 24px; }
   }
 }
 
-$names: 'react', 'typescript', 'js', 'html', 'css', 'sass', 'tailwind', 'git', 'postgresql', 'mongodb', 'node', 'python', 'rails', 'jest';
+$names: 'react', 'typescript', 'js', 'html', 'css', 'sass', 'tailwind', 'git', 'postgresql', 'mongodb', 'node', 'python', 'sklearn', 'jest';
 @each $name in $names {
   #langinput-#{$name}:checked {
     ~ .language-grid label[for="langinput-#{$name}"] .color {
